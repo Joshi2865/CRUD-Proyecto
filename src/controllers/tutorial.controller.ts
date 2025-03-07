@@ -145,18 +145,4 @@ export default class TutorialController {
 			});
 		}
 	}
-
-	async findAllPublished(req: Request, res: Response) {
-		const name = typeof req.query.name === "string" ? req.query.name : "";
-
-		try {
-			const tutorials = await tutorialRepository.retrieveAll({ name: name });
-
-			res.status(200).send(tutorials);
-		} catch (err) {
-			res.status(500).send({
-				message: "Some error occurred while retrieving tutorials.",
-			});
-		}
-	}
 }
